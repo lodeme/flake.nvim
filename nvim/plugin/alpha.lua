@@ -3,6 +3,7 @@ local dashboard = require("alpha.themes.dashboard")
 local logo = [[
 (╯°□°)╯︵ ┻━┻
 ]]
+logo = string.rep("\n", 6) .. logo .. "\n\n"
 
 dashboard.section.header.val = vim.split(logo, "\n")
 dashboard.section.buttons.val = {
