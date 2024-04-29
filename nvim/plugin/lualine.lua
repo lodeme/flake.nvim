@@ -1,5 +1,4 @@
 local theme_parser = {
-	["catppuccin"] = "catppuccin",
 	["everforest"] = "everforest",
 	["gruvbox"] = "gruvbox",
 	["kanagawa"] = "seoul256",

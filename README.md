@@ -26,13 +26,6 @@ There are multiple themes available and you can activate a specific theme by
 passing the `config.theme` value to the nix package at build time. You can
 choose between the following themes:
 
-- `catppuccin`
-- `everforest`
-- `gruvbox`
-- `kanagawa`
-
-You can also configure whether you want the background to be transparent or not
-using the `config.transparentBackground` value.
 
 ## Installation
 

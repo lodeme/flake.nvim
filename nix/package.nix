@@ -80,7 +80,6 @@ with lib; let
     (mkNvimPlugin inputs.cmp-vimtex "cmp-vimtex")
 
     # Themes.
-    catppuccin-nvim
     gruvbox-nvim
     kanagawa-nvim
     rose-pine
