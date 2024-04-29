@@ -67,11 +67,6 @@ with lib; let
     # Mini plugins.
     mini-nvim
 
-    # Neorg.
-    nui-nvim
-    nvim-nio
-    (mkNvimPlugin inputs.pathlib-nvim "pathlib-nvim")
-
     # Snippets.
     luasnip
 
