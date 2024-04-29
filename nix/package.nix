@@ -86,9 +86,6 @@ with lib; let
     rose-pine
     (mkNvimPlugin inputs.everforest-nvim "everforest-nvim")
 
-    # Tree.
-    nvim-tree-lua
-
     # Treesitter.
     nvim-treesitter.withAllGrammars
     nvim-treesitter-context
