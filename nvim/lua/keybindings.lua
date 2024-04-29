@@ -1,0 +1,45 @@
+-- ========================================================================== --
+-- ==                             KEYBINDINGS                              == --
+-- ========================================================================== --
+
+--- Select all text in the current buffer.
+--- This function is used to select all text in the current buffer. Once the
+--- visual mode is left, the cursor is put back to its original position.
+--- @return nil
+local function select_all()
+	local cursor_position = vim.api.nvim_win_get_cursor(0)
+	vim.api.nvim_buf_set_mark(0, "C", cursor_position[1], cursor_position[2], {})
+
+	vim.cmd("normal! ggVG")
+
+	-- Add a hook for the next time we leave the visual mode so that
+	-- the cursor is put back to its original position.
+	vim.api.nvim_create_autocmd("ModeChanged", {
+		callback = function()
+			local new_cursor_position = vim.api.nvim_buf_get_mark(0, "C")
+			vim.api.nvim_win_set_cursor(0, new_cursor_position)
+		end,
+		once = true,
+	})
+end
+
+-- Leave Buffer
+vim.keymap.set("n", "<leader>qw", "<cmd>write<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>qf", "<cmd>q!<cr>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>qq", "<cmd>wqa<cr>", { desc = "Save and quit all" })
+
+-- Other actions
+vim.keymap.set("n", "<leader>h", "<cmd>nohl<cr>", { desc = "Remove highlights" })
+vim.keymap.set("n", "<leader>a", select_all, { desc = "Select all text in current buffer" })
+
+-- Copy/paste
+vim.keymap.set({ "n", "x" }, "cp", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set({ "n", "x" }, "cv", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set("n", "x", '"_x', { desc = "Delete without changing internal clipboard" })
+
+-- Window jumps
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Quick move to bottom buffer" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Quick move to upper buffer" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Quick move to left buffer" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Quick move to right buffer" })
+
