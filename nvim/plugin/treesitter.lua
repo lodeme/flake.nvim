@@ -62,10 +62,10 @@ require("nvim-treesitter.configs").setup({
 		swap = {
 			enable = true,
 			swap_next = {
-				["<Leader>ls"] = { query = "@parameter.inner", desc = "Swap with the next parameter" },
+				["<Leader>cs"] = { query = "@parameter.inner", desc = "[s]wap next parameter" },
 			},
 			swap_previous = {
-				["<Leader>lS"] = { query = "@parameter.inner", desc = "Swap with the previous parameter" },
+				["<Leader>cS"] = { query = "@parameter.inner", desc = "[S]wap previous parameter" },
 			},
 		},
 
@@ -92,8 +92,8 @@ require("nvim-treesitter.configs").setup({
 			enable = true,
 			border = "rounded",
 			peek_definition_code = {
-				["<Leader>lf"] = { query = "@function.outer", desc = "Show function definition" },
-				["<Leader>lc"] = { query = "@class.outer", desc = "Show class definition" },
+				-- ["<Leader>lf"] = { query = "@function.outer", desc = "Show function definition" },
+				["<Leader>cD"] = { query = "@class.outer", desc = "class [D]efinition" },
 			},
 		},
 	},
